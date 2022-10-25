@@ -4,62 +4,41 @@
 #include "FreeRTOS.h"
 #include "Arduino.h"
 
-// igniters
-#define IGN_TEST_CON_1 34
-#define IGN_TEST_CON_2 35
-#define FIRE1 27
-#define FIRE2 26
-#define ARM_PIN 32
-
-#define VOLTAGE_MEASURE 36
-
-#define RESET_COMMAND 99
-
 //LORA
 #define LORA_D0 39
 #define LORA_CS 5
 #define LORA_RS 4
 
-//BUZZER & SPEAKER
-#define BUZZER 33
-#define SPEAKER 25
-
-//HX711
+//HX711 Sparkfun
 #define HX1_SDA 15
 #define HX1_SCL 2
+
+//HX711 chinol
 #define HX2_SDA 14
 #define HX2_SCL 12
 
-//RESET
-#define RST 13
+//AD7780
+#define AD_SCLK 32
+#define AD_DOUT 33
+#define AD_NPDRST 25
 
 //SPI
 #define SPI_MOSI 23
 #define SPI_MISO 19
 #define SPI_SCK 18
 
-//I2C   
-#define I2C_SCL 22
-#define I2C_SDA 21
-
-//SD CHIP SELECT
-#define SD_CS 17
-
 #define TX 1
 #define RX 3
 
-//CAMERA 
-#define RUNCAM 16
+//BT jumper
+#define BT_JUMP 16
 
-#define BOOT 0 //????????
+//BOOT
+#define BOOT 0 
 
+//Voltage measure
+#define VOLTAGE_MEASURE 34
 
-//expander
-#define MCP_ADDRESS 0x20 // (A2/A1/A0 = LOW)
-#define RESET_PIN 4 
-
-
-void beepBoop(int delay, int times, int devicePin);
 float voltageMeasure(uint8_t batteryPin);
 void pinInit();
 
