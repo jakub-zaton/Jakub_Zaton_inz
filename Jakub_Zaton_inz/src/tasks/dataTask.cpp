@@ -1,18 +1,10 @@
 #include "../include/tasks/tasks.h"
 
-
-// extern Hx711 rckWeight;
-// extern Hx711 tankWeight;
-// extern MCP23017 expander;
 char data[SD_FRAME_SIZE] = {};
- PWRData pwrData;
-//kod w tym tasku jest tylko do debugu 
+
 void dataTask(void *arg){
-  uint32_t abort_count = 0;
-  int turnVar = 0;
+
   DataFrame dataFrame;
- 
-  expander.setPinMode(0,B,INPUT); //input for abort button
 
   //HX711
   rckWeight.begin();
