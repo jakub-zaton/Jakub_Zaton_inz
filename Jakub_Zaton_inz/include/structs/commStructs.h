@@ -34,7 +34,7 @@ struct DataFrame{
     rocketWeight(0),
     tankWeight(0),
     rocketWeightRaw(0),
-    tankWeightRaw(0),
+    tankWeightRaw(0)
   {}
 };
 

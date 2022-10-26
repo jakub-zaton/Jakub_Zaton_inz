@@ -17,8 +17,6 @@ void setup() {
   Serial.begin(115200);
   pinInit();
 
-  WiFi.mode(WIFI_STA);
-  esp_wifi_set_mac(ESP_IF_WIFI_STA, adressTanwa);
 
   stm.spi.begin();
   
@@ -38,7 +36,7 @@ void setup() {
   //   ESP.restart();
   // }
 
-  if(stm.spiMutex == NULL || stm.i2cMutex == NULL){
+  if(stm.spiMutex == NULL){
     ESP.restart();
   }
 

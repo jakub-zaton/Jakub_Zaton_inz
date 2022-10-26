@@ -54,9 +54,11 @@ void dataTask(void *arg){
 
     
     Serial.println("\n\n\nCOM DATA:");
-    Serial.print("TANWA VOLTAGE 4: "); Serial.println(voltageMeasure(VOLTAGE_MEASURE));
+    Serial.print("Module VOLTAGE: "); Serial.println(voltageMeasure(VOLTAGE_MEASURE));
     Serial.print("TANK WEIGHT: "); Serial.println(dataFrame.tankWeight);
+    Serial.print("TANK WEIGHT RAW: "); Serial.println(dataFrame.tankWeightRaw);
     Serial.print("ROCKET WEIGHT: "); Serial.println(dataFrame.rocketWeight);
+    Serial.print("ROCKET WEIGHT RAW: "); Serial.println(dataFrame.rocketWeightRaw);
     vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }

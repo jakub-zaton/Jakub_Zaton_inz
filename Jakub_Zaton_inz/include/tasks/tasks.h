@@ -1,6 +1,5 @@
 #ifndef TASKS_HH
 #define TASKS_HH
-
 #include "../structs/SoftToolsManagment.h"
 #include "../config/pinout.h"
 #include "LoRa.h"
@@ -8,9 +7,7 @@
 #include "../components/SDcard.h"
 #include <HX711_ADC.h>
 #include "../components/hx711.h"
-#include "../com/internalCommunication.h"
 #include "../structs/commStructs.h"
-
 
 extern SoftwareToolsManagment stm;
 extern Hx711 rckWeight;
