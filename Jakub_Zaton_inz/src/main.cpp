@@ -5,12 +5,15 @@
 #include "../include/structs/SoftToolsManagment.h"
 #include "../include/structs/commStructs.h"
 #include <esp_wifi.h>
+// #include "HX711.h"
 
 
 SoftwareToolsManagment stm;
 // HX711
-Hx711 ADC1_Sparkfun(HX1_SDA, HX1_SCL);
-Hx711 ADC2_China(HX2_SDA, HX2_SCL);
+// Hx711 ADC1_Sparkfun(HX1_SDA, HX1_SCL);
+// Hx711 ADC2_China(HX2_SDA, HX2_SCL);
+HX711 ADC1_Sparkfun;
+
 
 void setup() {
 

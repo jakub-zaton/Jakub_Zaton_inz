@@ -5,13 +5,15 @@
 #include "LoRa.h"
 #include "../config/config.h"
 #include "../components/SDcard.h"
-#include <HX711_ADC.h>
+// #include <HX711_ADC.h>
+#include "HX711.h"
 #include "../components/hx711.h"
 #include "../structs/commStructs.h"
 
 extern SoftwareToolsManagment stm;
-extern Hx711 ADC1_Sparkfun;
-extern Hx711 ADC2_China;
+// extern Hx711 ADC1_Sparkfun;
+// extern Hx711 ADC2_China;
+extern HX711 ADC1_Sparkfun;
 
 
 //pro_cpu

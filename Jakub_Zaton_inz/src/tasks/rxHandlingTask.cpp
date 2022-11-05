@@ -74,17 +74,17 @@ void rxHandlingTask(void* arg){
               break;
             
             case CALIBRATE_RCK_:
-              Serial.print("CAL FACTOR ROCKET: "); Serial.println(ADC1_Sparkfun.CustomCalibration(atoi(frame_array[2].c_str())));
+              // Serial.print("CAL FACTOR ROCKET: "); Serial.println(ADC1_Sparkfun.CustomCalibration(atoi(frame_array[2].c_str())));
               break;
 
             case TARE_TANK_:
-              ADC2_China.tare();
+              // ADC2_China.tare();
               break;
 
             case CALIBRATE_TANK_:
               // ADC2_China.CustomCalibration(atoi(frame_array[3].c_str()),0);
               // ADC2_China.CustomCalibration(atoi(frame_array[2].c_str()));
-              Serial.print("CAL FACTOR TANK: "); Serial.println(ADC2_China.CustomCalibration(atoi(frame_array[2].c_str())));
+              // Serial.print("CAL FACTOR TANK: "); Serial.println(ADC2_China.CustomCalibration(atoi(frame_array[2].c_str())));
 
               break;
 
@@ -95,12 +95,12 @@ void rxHandlingTask(void* arg){
 
           case SET_CAL_FACTOR_:
             if(frame_array[2]=="RCK"){
-              ADC1_Sparkfun.setCalFactor(atoi(frame_array[3].c_str()));
+              // ADC1_Sparkfun.setCalFactor(atoi(frame_array[3].c_str()));
               Serial.print("CAL FACTOR RCK = "); Serial.println(atoi(frame_array[3].c_str()));
             }
             else if (frame_array[2]=="TANK"){
-              ADC2_China.setCalFactor(atoi(frame_array[3].c_str()));
-              Serial.print("CAL FACTOR TANK = "); Serial.println(atoi(frame_array[3].c_str()));
+              // ADC2_China.setCalFactor(atoi(frame_array[3].c_str()));
+              // Serial.print("CAL FACTOR TANK = "); Serial.println(atoi(frame_array[3].c_str()));
             }
             break;
 
