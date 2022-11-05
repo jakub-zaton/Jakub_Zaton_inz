@@ -23,18 +23,18 @@ struct Options{
 
 struct DataFrame{
   float vbat;
-  float rocketWeight;
-  float tankWeight; 
-  uint32_t rocketWeightRaw;
-  uint32_t tankWeightRaw;
+  float ADC1_Sparkfun;
+  float ADC2_China; 
+  uint32_t ADC1_SparkfunRaw;
+  uint32_t ADC2_ChinaRaw;
 
 
   DataFrame():
     vbat(0),
-    rocketWeight(0),
-    tankWeight(0),
-    rocketWeightRaw(0),
-    tankWeightRaw(0)
+    ADC1_Sparkfun(0),
+    ADC2_China(0),
+    ADC1_SparkfunRaw(0),
+    ADC2_ChinaRaw(0)
   {}
 };
 

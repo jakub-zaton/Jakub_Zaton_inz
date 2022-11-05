@@ -30,8 +30,8 @@ static String dataFileName= "/data_";
 #define LORA_FREQ_MHZ 867    //927
 
 //WEIGHTING
-#define BIT_TO_GRAM_RATIO_RCK 53.13
-#define BIT_TO_GRAM_RATIO_TANK 37.78// USA 32.73
+#define BIT_TO_GRAM_RATIO_RCK 1
+#define BIT_TO_GRAM_RATIO_TANK 1// USA 32.73
 #define OFFSET_TANK 1
 #define STABILIZNG_TIME 4000
 

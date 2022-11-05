@@ -10,8 +10,8 @@
 #include "../structs/commStructs.h"
 
 extern SoftwareToolsManagment stm;
-extern Hx711 rckWeight;
-extern Hx711 tankWeight;
+extern Hx711 ADC1_Sparkfun;
+extern Hx711 ADC2_China;
 
 
 //pro_cpu
