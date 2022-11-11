@@ -11,7 +11,7 @@ float voltageMeasure(uint8_t batteryPin)
 
 void pinInit()
 {
-    pinMode(BT_JUMP, INPUT); 
+    pinMode(BT_JUMP, PULLUP); 
     //VOLTAGE
     pinMode(VOLTAGE_MEASURE, INPUT);
 }

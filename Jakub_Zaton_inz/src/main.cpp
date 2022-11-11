@@ -13,6 +13,8 @@ SoftwareToolsManagment stm;
 // Hx711 ADC1_Sparkfun(HX1_SDA, HX1_SCL);
 // Hx711 ADC2_China(HX2_SDA, HX2_SCL);
 HX711 ADC1_Sparkfun;
+HX711 ADC2_China;
+AD7780 ADC3_AD;
 
 
 void setup() {
@@ -53,3 +55,105 @@ void setup() {
 
 void loop() {}
 
+//#################################################################################
+//#######################################################################
+// #define AD7780_PWDOWN 25	// Reset/ Power down pin -> High is on
+// #define AD7780_SCK 32		// Clock
+// #define AD7780_MISO 33		// MISO
+
+// int calZero = 0;
+// int calLoad = 0;
+// int calCoeff = 0;
+// float outputWeight = 0;
+
+// int readDataRaw(){
+//   digitalWrite(AD7780_SCK, HIGH);				// Clock high from Arduino
+//   delay(1);
+//   digitalWrite(AD7780_PWDOWN, HIGH);			// AD7080 Turn on	
+
+//   while(digitalRead(AD7780_MISO)==HIGH);	// Wait until AD7780 sets RDY LOW
+//   // Serial.println("MISO turned low Measuring is finnished, and we get the result");
+
+
+//   uint32_t adc_read = 0;
+//   uint8_t stat = 0;
+//   for(int i=0; i< 32; i++)
+//   {
+//     digitalWrite(AD7780_SCK, LOW);
+//     delayMicroseconds(10);
+//     digitalWrite(AD7780_SCK, HIGH);
+
+//     if(digitalRead(AD7780_MISO)) {
+//       adc_read |= 1;
+//     }
+//     adc_read <<= 1;
+//     delayMicroseconds(10);
+//   }
+
+//   adc_read >>= 1;
+//   stat = adc_read & 0xff;
+//   adc_read >>= 8;
+
+//   // Serial.print("Control bits: ");
+//   // Serial.println(stat, BIN);
+
+//   digitalWrite(AD7780_PWDOWN, LOW);    // AD7080 Turn off	
+//   return adc_read;
+// }
+
+// float calibration(int knownMass){
+
+//   Serial.println("Remove aything from a scale");
+//   delay(1000);
+//   Serial.println("Tare - looking for offset");
+//   //  for(int i = 0; i < 10; i++)
+//   //   calZero += readDataRaw();
+
+//   // calZero = calZero/10;
+//   // Serial.print("Cal Zero = ");
+//   // Serial.println(calZero);
+
+//   Serial.println("PUT weight on the scale");
+//   delay(6000);
+//   for(int i = 0; i < 10; i++)
+//     calLoad += readDataRaw();
+  
+//   int calLoadAverage = calLoad/10;
+//   calCoeff = (calLoadAverage-calZero)/knownMass;
+
+//   Serial.println("Cal coeff settled");
+  
+//   return calCoeff;
+
+// }
+
+// float readData(){
+//   outputWeight = ((long double)readDataRaw()-(long double)calZero)/calCoeff;
+//   int outputWeightInt = (int32_t) outputWeight;
+//   return outputWeightInt;
+// }
+
+// void setup()
+// {
+//   Serial.begin(115200);
+// 	Serial.println("Start...");
+ 
+// 	pinMode(AD7780_PWDOWN, OUTPUT);
+// 	pinMode(AD7780_SCK, OUTPUT);	// SCK is output
+// 	pinMode(AD7780_MISO, INPUT);	// MISO ist read
+// 	digitalWrite(AD7780_PWDOWN, LOW);		// AD7080 in Standby
+// 	Serial.println("AD7780 initialisation finnished");
+//   calibration(9100);
+// }
+
+
+// void loop()
+// {
+
+//   int adc_read = readDataRaw();
+//   Serial.print("WEIGHT BIN: ");
+//   Serial.println(adc_read, DEC);
+  
+//   Serial.print("WEIGHT in grams: ");
+//   Serial.println(readData());
+// }
