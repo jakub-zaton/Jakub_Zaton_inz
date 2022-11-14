@@ -10,25 +10,25 @@ void dataTask(void *arg){
   // ############################################################################
   // ###########   ADC1    ######################################################
 
-  ADC1_Sparkfun.begin(HX1_SDA,HX1_SCL);
+  // ADC1_Sparkfun.begin(HX1_SDA,HX1_SCL);
 
-  if (ADC1_Sparkfun.is_ready()) {
+  // if (ADC1_Sparkfun.is_ready()) {
 
-    if(digitalRead(BT_JUMP)==1){
-      Serial.println("500 grams");
-      ADC1_Sparkfun.calibration(500);
-    }
-    else{
-      Serial.println("9100 grams");
-      ADC1_Sparkfun.calibration(9100);
-    }
+  //   if(digitalRead(BT_JUMP)==1){
+  //     Serial.println("500 grams");
+  //     ADC1_Sparkfun.calibration(500);
+  //   }
+  //   else{
+  //     Serial.println("8000 grams");
+  //     ADC1_Sparkfun.calibration(8000);
+  //   }
 
-    // ADC1_Sparkfun.set_scale(111);
-    // ADC1_Sparkfun.set_offset(-10304);
-    ADC1_Sparkfun.tare();
-    Serial.print("ADC1 OFFSEEEEET "); Serial.println(ADC1_Sparkfun.get_offset());
-    vTaskDelay(1000/portTICK_PERIOD_MS);
-  }
+  //   // ADC1_Sparkfun.set_scale(111);
+  //   // ADC1_Sparkfun.set_offset(-10304);
+  //   ADC1_Sparkfun.tare();
+  //   Serial.print("ADC1 OFFSEEEEET "); Serial.println(ADC1_Sparkfun.get_offset());
+  //   vTaskDelay(1000/portTICK_PERIOD_MS);
+  // }
 
   // // ###########################################################################
   // // ###########################################################################
@@ -44,12 +44,12 @@ void dataTask(void *arg){
   //     ADC2_China.calibration(500);
   //   }
   //   else{
-  //     Serial.println("9100 grams");
-  //     ADC2_China.calibration(9100);
+  //     Serial.println("8000 grams");
+  //     ADC2_China.calibration(8000);
   //   }
 
-  //   // ADC2_China.set_scale(111);
-  //   // ADC2_China.set_offset(-10304);
+  //   // ADC2_China.set_scale(107);
+  //   // ADC2_China.set_offset(19746);
   //   ADC2_China.tare();
   //   Serial.print("ADC2 OFFSEEEEET "); Serial.println(ADC2_China.get_offset());
   //   vTaskDelay(1000/portTICK_PERIOD_MS);
@@ -61,23 +61,23 @@ void dataTask(void *arg){
   // ############################################################################
   // ###########   ADC3    ######################################################
 
-  // ADC3_AD.begin(AD_SCLK, AD_DOUT, AD_NPDRST);
+  ADC3_AD.begin(AD_SCLK, AD_DOUT, AD_NPDRST);
 
   
-  // if(digitalRead(BT_JUMP)==1){
-  //     Serial.println("500 grams");
-  //     ADC3_AD.calibration(500);
-  //   }
-  //   else{
-  //     Serial.println("9100 grams");
-  //     ADC3_AD.calibration(9100);
-  //   }
+  if(digitalRead(BT_JUMP)==1){
+      Serial.println("500 grams");
+      ADC3_AD.calibration(500,15000);
+    }
+    else{
+      Serial.println("8000 grams");
+      ADC3_AD.calibration(8000,45000);
+    }
 
   // ADC3_AD.set_calCOeff(111);
   // ADC3_AD.set_offset(-10304);
   // ADC3_AD.tare();
   // Serial.print("ADC3 OFFSEEEEET "); Serial.println(ADC3_AD.get_offset());
-  // vTaskDelay(1000/portTICK_PERIOD_MS);
+  vTaskDelay(1000/portTICK_PERIOD_MS);
 
 
   // ###########################################################################
@@ -92,21 +92,30 @@ void dataTask(void *arg){
   while(1){
 
     
-      Serial.print("ADC1 read in grams: \t\t");
-      Serial.println(ADC1_Sparkfun.get_units(1));
-      Serial.print("ADC1 read RAW: \t\t");
-      Serial.println(ADC1_Sparkfun.read());
+      // Serial.print("ADC1 read in grams: \t\t");
+      // Serial.print(ADC1_Sparkfun.get_units(1));
+      // Serial.print(";");
+      // Serial.print("ADC1 read RAW: \t\t");
+      // Serial.print(ADC1_Sparkfun.read());
+      // Serial.print(";\n");
 
       // Serial.print("ADC2 read in grams: \t\t");
       // Serial.println(ADC2_China.get_units(1));
       // Serial.print("ADC2 read RAW: \t\t");
       // Serial.println(ADC2_China.read());
-
+      // Serial.print(ADC2_China.get_units(1));
+      // Serial.print(";");
+      // Serial.print(ADC2_China.read());
+      // Serial.print(";\n");
 
       // Serial.print("ADC3 read in grams: ");
       // Serial.println(ADC3_AD.readData());
       // Serial.print("ADC3 read RAW: ");
       // Serial.println(ADC3_AD.readDataRaw());
+      Serial.print(ADC3_AD.readData());
+      Serial.print(";");
+      Serial.print(ADC3_AD.readDataRaw());
+      Serial.print(";\n");
 
 
   //   dataFrame.vbat = voltageMeasure(VOLTAGE_MEASURE);

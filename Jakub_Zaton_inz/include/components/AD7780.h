@@ -16,7 +16,7 @@ class AD7780{
     public:
         void begin(int AD7780_SCK_, int AD7780_MISO_, int AD7780_PWDOWN_);
         int readDataRaw();
-        float calibration(int knownMass);
+        float calibration(int knownMass, int delay);
         float readData();
         void set_calCOeff(long calCoeff_);
         void set_offset(long calZero_);

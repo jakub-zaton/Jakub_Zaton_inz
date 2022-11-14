@@ -55,31 +55,31 @@ int AD7780::readDataRaw(){
 
 
 
-float AD7780::calibration(int knownMass){
+float AD7780::calibration(int knownMass, int delay){
 
   Serial.println("Remove aything from a scale");
-  vTaskDelay(1000/portTICK_PERIOD_MS);
+  vTaskDelay(5000/portTICK_PERIOD_MS);
   Serial.println("Tare - looking for offset");
-  //  for(int i = 0; i < 10; i++)
-  //   calZero += readDataRaw();
+  for(int i = 0; i < 10; i++)
+    calZero += readDataRaw();
 
-  // calZero = calZero/10;
-  // Serial.print("Cal Zero = ");
-  // Serial.println(calZero);
+  calZero = calZero/10;
+  Serial.print("Cal Zero = ");
+  Serial.println(calZero);
 
   Serial.println("PUT weight on the scale");
-  vTaskDelay(1000/portTICK_PERIOD_MS);
+  vTaskDelay(delay/portTICK_PERIOD_MS);
   for(int i = 0; i < 10; i++)
     calLoad += readDataRaw();
   
   long calLoadAverage = calLoad/10;
   calCoeff = (calLoadAverage-calZero)/knownMass;
 
-  Serial.println("Cal coeff settled");
-//   Serial.println("REMOVE OBJECT FROM THE SCALE");
+  Serial.print("Cal coeff settled"); Serial.println(calCoeff);
+  Serial.println("REMOVE OBJECT FROM THE SCALE");
 
-//   vTaskDelay(2000/portTICK_PERIOD_MS);
-//   tare();
+  vTaskDelay(delay/portTICK_PERIOD_MS);
+  // tare();
   
   return calCoeff;
 }
