@@ -37,18 +37,9 @@ void setup() {
   // xTaskCreatePinnedToCore(sdTask,   "SD task",   20000, NULL, 3, &stm.sdTask,   APP_CPU_NUM);
   xTaskCreatePinnedToCore(dataTask, "Data task", 20000, NULL, 3, &stm.dataTask, APP_CPU_NUM);
 
-  // if(stm.sdQueue == NULL || stm.loraTxQueue == NULL){
+  // if( stm.loraTxQueue == NULL){
   //   ESP.restart();
   // }
-
-  // if(stm.spiMutex == NULL){
-  //   ESP.restart();
-  // }
-
-  /*
-  if(stm.loraTask == NULL || stm.sdTask == NULL || stm.dataTask == NULL){
-   ESP.restart();
-  }*/
   
   vTaskDelete(NULL);
 }
