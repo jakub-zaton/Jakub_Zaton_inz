@@ -118,13 +118,16 @@ void dataTask(void *arg){
       Serial.print(";\n");
 
 
-  //   dataFrame.vbat = voltageMeasure(VOLTAGE_MEASURE);
+    dataFrame.ADC1_Sparkfun = ADC3_AD.readData();
   //   // memcpy(dataFrame.motorState, pwrData.motorState, sizeof(uint8_t[5]));
 
-  //   createDataFrame(dataFrame, data);
+    createDataFrame(dataFrame, data);
 
-  //   Serial.println(data);
-  //   // xQueueSend(stm.loraTxQueue, (void*)data, 0);
+    Serial.print("DATA: ");
+    Serial.println(data);
+
+
+    xQueueSend(stm.loraTxQueue, (void*)data, 0);
 
   //   // xQueueSend(stm.sdQueue, (void*)data, 0); 
   //   if(var==true && counter==200){

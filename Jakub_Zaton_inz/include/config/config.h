@@ -27,7 +27,7 @@
 static String dataFileName= "/data_";
 
 
-#define LORA_FREQ_MHZ 867    //927
+#define LORA_FREQ_MHZ 433    //927
 
 //WEIGHTING
 #define BIT_TO_GRAM_RATIO_RCK 1
